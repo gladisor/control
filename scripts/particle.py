@@ -15,6 +15,11 @@ class Particle(Dynamics):
         return 2
     
     def acceleration(self, u: Tensor):
+        ## original (uncontrollable) dynamics
+        # p1_dot = self.alpha * torch.cos(u[0])
+        # p2_dot = self.alpha * torch.sin(u[0])
+
+        ## modified (controllable) dynamics
         p1_dot = u[0]
         p2_dot = u[1]
         return p1_dot, p2_dot
